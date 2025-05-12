@@ -1,20 +1,95 @@
-# [CVPR 2025 Highlight] SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity 
-Despite the growing integration of deep models into mobile terminals, the accuracy of these models declines significantly due to various deployment interferences. Test-time adaptation (TTA) has emerged to improve the performance of deep models by adapting them to unlabeled target data online. Yet, the significant memory cost, particularly in resource-constrained terminals, impedes the effective deployment of most backward-propagation-based TTA methods. To tackle memory constraints, we introduce SURGEON, a method that substantially reduces memory cost while preserving comparable accuracy improvements during fully test-time adaptation (FTTA) without relying on specific network architectures or modifications to the original training procedure. Specifically, we propose a novel dynamic activation sparsity strategy that directly prunes activations at layer-specific dynamic ratios during adaptation, allowing for flexible control of learning ability and memory cost in a data-sensitive manner. Among this, two metrics, Gradient Importance and Layer Activation Memory, are considered to determine the layer-wise pruning ratios, reflecting accuracy contribution and memory efficiency, respectively. Experimentally, our method surpasses the baselines by not only reducing memory usage but also achieving superior accuracy, delivering SOTA performance across diverse datasets, architectures, and tasks.
-
-Axriv: [https://arxiv.org/abs/2503.20354]
-
-The complete code will be released soon.
+<div align="center">
+  <img src="assets/surgeon_logo.png" width="200" alt="SURGEON Logo">
+  <h1>SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity</h1>
+  <p><strong>[CVPR 2025 Highlight]</strong></p>
+  <p>
+    <a href="https://arxiv.org/abs/2503.20354">📄 Paper</a> |
+    <a href="#installation">⚙️ Installation</a> |
+    <a href="#usage">🚀 Usage</a> |
+    <a href="#citation">📚 Citation</a>
+  </p>
+</div>
 
 ---
-## 🌐 **Citations**
 
-**The following is a BibTeX reference:**
+## 🔍 Overview
 
+**SURGEON** is a fully test-time adaptation (FTTA) method designed to be lightweight and highly adaptable. It reduces memory cost during deployment on resource-constrained devices—without compromising accuracy or requiring any architectural changes or retraining.
+
+We introduce a novel **Dynamic Activation Sparsity** mechanism that prunes activations on a per-layer basis using two adaptive metrics:
+
+- **Gradient Importance (GI)**: Measures each layer’s contribution to accuracy.
+- **Layer Activation Memory (LAM)**: Measures per-layer memory usage.
+
+This allows SURGEON to **dynamically balance memory and adaptation performance** during test-time.
+
+> 🔥 SURGEON achieves state-of-the-art performance on various datasets and architectures, while requiring significantly less memory than existing methods.
+
+---
+
+## 📦 Installation
+
+We follow the environment setup from [RobustBench](https://github.com/RobustBench/robustbench) and [TTA baselines](https://github.com/mariodoebler/test-time-adaptation).
+
+```bash
+conda update conda
+conda env create -f environment.yml
+conda activate surgeon
+```
+⚠️ Ensure you have Python ≥ 3.8 and PyTorch ≥ 1.10
+---
+
+## 📂 Datasets
+
+We evaluate SURGEON on the following commonly-used corrupted datasets:
+
+[ImageNet-C](https://zenodo.org/records/2235448#.Yj2RO_co_mF)
+
+[CIFAR-10C](https://zenodo.org/records/2535967/files/CIFAR-10-C.tar?download=1)
+
+[CIFAR-100C](https://zenodo.org/records/3555552/files/CIFAR-100-C.tar?download=1)
+
+After downloading, update the dataset path in ./conf.py:
+_C.DATA_DIR = "/your/data/path"
+
+Recommended directory structure:
+
+/your/data/path/
+├── imagenet-c/
+├── CIFAR-10-C/
+└── CIFAR-100-C/
+
+## 💾 Pretrained Models
+Pretrained weights will be released soon. Stay tuned!
+
+## 🚀 Usage
+We provide config files for all baseline and SURGEON experiments in ./cfgs.
+
+Run the method using:
+
+python main.py --cfg ./cfgs/surgeon_cifar10.yaml
+
+You can switch to other configs for different datasets or baselines.
+
+## 📚 Citation
+If you find our work useful, please cite us:
 ``` latex
 @inproceedings{ma2025surgeon,
-      title={SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity}, 
-      author={Ke Ma and Jiaqi Tang and Bin Guo and Fan Dang and Sicong Liu and Zhui Zhu and Lei Wu and Cheng Fang and Ying-Cong Chen and Zhiwen Yu and Yunhao Liu},
-      year={2025},
-      booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  title={SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity},
+  author={Ke Ma and Jiaqi Tang and Bin Guo and Fan Dang and Sicong Liu and Zhui Zhu and Lei Wu and Cheng Fang and Ying-Cong Chen and Zhiwen Yu and Yunhao Liu},
+  booktitle={CVPR},
+  year={2025}
 }
 ```
+
+## 🙌 Acknowledgements
+This repo is built upon:
+[Test-Time Adaptation](https://github.com/mariodoebler/test-time-adaptation)
+[RobustBench](https://github.com/RobustBench/robustbench)
+
+## 📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## 📬 Contact
+If you encounter any problems or have questions, feel free to reach out:
+📧 2544552413@mail.nwpu.edu.cn
