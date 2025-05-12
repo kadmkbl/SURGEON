@@ -1,14 +1,8 @@
-<div align="center">
-  <img src="assets/surgeon_logo.png" width="200" alt="SURGEON Logo">
-  <h1>SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity</h1>
-  <p><strong>[CVPR 2025 Highlight]</strong></p>
-  <p>
-    <a href="https://arxiv.org/abs/2503.20354">📄 Paper</a> |
-    <a href="#installation">⚙️ Installation</a> |
-    <a href="#usage">🚀 Usage</a> |
-    <a href="#citation">📚 Citation</a>
-  </p>
-</div>
+# SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity
+
+**[CVPR 2025 Highlight]**
+
+[📄 Paper](https://arxiv.org/abs/2503.20354) | [⚙️ Installation](#-installation) | [🚀 Usage](#-usage) | [📚 Citation](#-citation)
 
 ---
 
@@ -36,44 +30,59 @@ conda update conda
 conda env create -f environment.yml
 conda activate surgeon
 ```
-⚠️ Ensure you have Python ≥ 3.8 and PyTorch ≥ 1.10
+
 ---
 
 ## 📂 Datasets
 
 We evaluate SURGEON on the following commonly-used corrupted datasets:
 
-[ImageNet-C](https://zenodo.org/records/2235448#.Yj2RO_co_mF)
+- [ImageNet-C](https://zenodo.org/records/2235448)
+- [CIFAR-10C](https://zenodo.org/records/2535967/files/CIFAR-10-C.tar?download=1)
+- [CIFAR-100C](https://zenodo.org/records/3555552/files/CIFAR-100-C.tar?download=1)
 
-[CIFAR-10C](https://zenodo.org/records/2535967/files/CIFAR-10-C.tar?download=1)
+After downloading, update the dataset path in `./conf.py`:
 
-[CIFAR-100C](https://zenodo.org/records/3555552/files/CIFAR-100-C.tar?download=1)
-
-After downloading, update the dataset path in ./conf.py:
+```python
 _C.DATA_DIR = "/your/data/path"
+```
 
 Recommended directory structure:
 
+```
 /your/data/path/
 ├── imagenet-c/
 ├── CIFAR-10-C/
 └── CIFAR-100-C/
+```
+
+---
 
 ## 💾 Pretrained Models
+
 Pretrained weights will be released soon. Stay tuned!
 
+---
+
 ## 🚀 Usage
-We provide config files for all baseline and SURGEON experiments in ./cfgs.
 
-Run the method using:
+We provide config files for all baseline and SURGEON experiments in `./cfgs`.
 
+To run an experiment:
+
+```bash
 python main.py --cfg ./cfgs/surgeon_cifar10.yaml
+```
 
 You can switch to other configs for different datasets or baselines.
 
+---
+
 ## 📚 Citation
+
 If you find our work useful, please cite us:
-``` latex
+
+```latex
 @inproceedings{ma2025surgeon,
   title={SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity},
   author={Ke Ma and Jiaqi Tang and Bin Guo and Fan Dang and Sicong Liu and Zhui Zhu and Lei Wu and Cheng Fang and Ying-Cong Chen and Zhiwen Yu and Yunhao Liu},
@@ -82,14 +91,25 @@ If you find our work useful, please cite us:
 }
 ```
 
+---
+
 ## 🙌 Acknowledgements
+
 This repo is built upon:
-[Test-Time Adaptation](https://github.com/mariodoebler/test-time-adaptation)
-[RobustBench](https://github.com/RobustBench/robustbench)
+
+- [Test-Time Adaptation](https://github.com/mariodoebler/test-time-adaptation)  
+- [RobustBench](https://github.com/RobustBench/robustbench)
+
+---
 
 ## 📄 License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
+---
+
 ## 📬 Contact
+
 If you encounter any problems or have questions, feel free to reach out:
+
 📧 2544552413@mail.nwpu.edu.cn
