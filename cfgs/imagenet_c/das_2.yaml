@@ -1,0 +1,32 @@
+CORRUPTION:
+  DATASET: imagenet_c
+  SEVERITY:
+    - 5
+  TYPE:
+  - contrast
+  - defocus_blur
+  - gaussian_noise
+  - shot_noise
+  - snow
+  - frost
+  - glass_blur
+  - zoom_blur
+  - elastic_transform
+  - jpeg_compression
+  - pixelate
+  - brightness
+  - impulse_noise
+  - motion_blur
+  - fog
+MODEL:
+  ADAPTATION: das
+  ARCH: resnet50
+OPTIM:
+  BETA: 0.9
+  # LR: 5e-6 # SURGEON + CSS & CR
+  LR: 2e-4 # SURGEON (BN_only) + CSS & CR
+  METHOD: Adam
+  STEPS: 1
+  WD: 0.0
+TEST:
+  BATCH_SIZE: 64
