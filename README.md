@@ -116,9 +116,10 @@ If you find our work useful, please cite us:
 
 ```latex
 @inproceedings{ma2025surgeon,
-  title={SURGEON: Memory-Adaptive Fully Test-Time Adaptation via Dynamic Activation Sparsity},
-  author={Ke Ma and Jiaqi Tang and Bin Guo and Fan Dang and Sicong Liu and Zhui Zhu and Lei Wu and Cheng Fang and Ying-Cong Chen and Zhiwen Yu and Yunhao Liu},
-  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  title={Surgeon: Memory-adaptive fully test-time adaptation via dynamic activation sparsity},
+  author={Ma, Ke and Tang, Jiaqi and Guo, Bin and Dang, Fan and Liu, Sicong and Zhu, Zhui and Wu, Lei and Fang, Cheng and Chen, Ying-Cong and Yu, Zhiwen and others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={30514--30523},
   year={2025}
 }
 ```
